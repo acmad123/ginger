@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rentalz</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-type" content="text/html;charset=utf-8" />
+<script
+  src="http://code.jquery.com/jquery-1.9.1.js"
+  integrity="sha256-e9gNBsAcA0DBuRWbm0oZfbiCyhjLrI6bmqAl5o+ZjUA="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	
+    <script> 	
+        function  checkforblank(){
+		
+		var error= ""; 
+		
+		if(document.getElementById('Proptype').value == ""){
+		    error += "Please enter Property type \n";
+			document.getElementById('Proptype').style.borderColor="red";
+		   }
+	
+		if(document.getElementById('Bedrooms').value == ""){
+		    error += "Please enter what type of bedroom \n";
+			document.getElementById('Bedrooms').style.borderColor="red";
+	      }	
+		
+		if(document.getElementById('Datetime').value == ""){
+		    error += "Please enter when the property have been added \n";
+			document.getElementById('Datetime').style.borderColor="red";
+		   }
+		
+		if(document.getElementById('Rent').value == ""){
+		    error += "Please enter monthly rent price \n";
+			document.getElementById('Rent').style.borderColor="red";
+		   }
+		
+		if(document.getElementById('Report').value == ""){
+		    error += "Please enter your name \n";
+			document.getElementById('Report').style.borderColor="red";
+		   }
+		if(error !=""){
+		    alert(error);
+		   }
+		
+	}		
+	</script>
+    <script type="text/javascript" src="form.js"></script>
+    <script type="text/javascript">
+    form.initialize();
+    </script>
+<body>
+
+	<!--on my documen theres an element with id proptype this element has a value, if the value is blank then an alert will appear-->
+	
+
+<h2>
+	Rentalz
+</h2> <!--mobile users find it easier to tap on the label than on the fieldusuability-->
+	
+	<form method="post" action="#" onsubmit="return checkforblank()">
+	<fieldset>
+		<legend>Add Property:</legend>
+	<label> Property type:
+	<input type= "text" id="Proptype" placeholder = "e.g. flat, house, bungalow"/></label>
+	<br>
+		<label> Bedrooms:
+	<input type= "text" id="Bedrooms" placeholder = "e.g. studio, one, two, etc."/></label>
+		<br>
+		<label> Property date and time:
+	<input type= "datetime-local" id="Datetime" name = "timeprop"/>
+		</label>
+		<br>
+		<label> Monthly rent price :
+	<input type="number" id="Rent" placeholder = "Monthly rent price"></label>
+		<br>
+		<label> Furniture types:
+	<input type= "text" id="Furnitype" placeholder = "e.g. Furnished, Unfurnished, Part Furnished"/></label>
+	<br>
+  <label>Notes<br>
+	  <textarea name="Notes" id="Notes" rows="5" cols="20">
+  </textarea>
+	  </label>
+  <br>
+		<label> Name of the reporter:<br>
+	<input type= "text" id="Report" placeholder = "Your Name"/>
+		</label>
+	<br>
+		<input type="submit" value ="Add Property" onClick="AddValueToDB()"><br>
+		<input type="button" value ="View Properties" onClick="ListDBValues()"><br>
+		<input type="button" value = "Delete Properties" onClick="DeleteDB()"><br>
+		</fieldset>
+		<span style="font-weight:bold;">Current Properties:</span>
+		<p>
+       
+        </p>
+        <span id="lbProperty"></span>
+	    </form>
+	    </body>	
+</head>	
+</html>
